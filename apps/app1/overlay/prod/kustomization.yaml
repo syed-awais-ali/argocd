@@ -1,0 +1,23 @@
+bases:
+- ../../base
+
+patchesStrategicMerge:
+- replica-and-rollout-strategy.yaml
+- lb-service.yaml
+- cpu-reqs.yaml
+- memory-reqs.yaml
+
+namePrefix: "prod-"  
+namespace: prod-namespace
+commonLabels:
+  env : prod
+
+replicas:
+- name: app1
+  count: 3
+
+images:
+- name: nginx
+  newName: nginx
+  newTag: 1.18.0
+  #  digest: sha256:24a0c4b4a4c0eb97a1aabb8e29f18e917d05abfe1b7a7c07857230879ce7d3d3
