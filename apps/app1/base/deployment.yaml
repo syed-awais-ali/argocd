@@ -18,7 +18,7 @@ spec:
         run: app1
     spec:
       containers:
-      - image: nginx:1.17.10
+      - image: core.harbor.domain/library/buildah-centos:78b0c3e0c0aaed6eb675bbc073dd4ebab4cc002a
         name: app1
         ports:
         - containerPort: 80
