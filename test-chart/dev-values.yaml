@@ -1,0 +1,10 @@
+opentelemetry-collector:
+  global:
+    image:
+      repository: otel/opentelemetry-collector
+      pullPolicy: IfNotPresent
+      tag: ""
+    imagePullSecrets: []
+
+
+
