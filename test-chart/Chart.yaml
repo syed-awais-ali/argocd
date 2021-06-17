@@ -1,4 +1,5 @@
 apiVersion: v2
+name: testing
 dependencies:
  - name: opentelemetry-collector
    version: 0.5.6
