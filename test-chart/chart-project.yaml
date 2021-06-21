@@ -10,3 +10,6 @@ spec:
     server: https://kubernetes.default.svc
   sourceRepos:
   - https://github.com/Aamir-raza-1/argocd
+  clusterResourceWhitelist:
+  - group: ''
+    kind: Namespace

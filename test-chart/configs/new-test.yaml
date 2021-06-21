@@ -1,7 +1,0 @@
-{
-  "env": "hello",
-  "cluster": {
-    "name": "hello-cluster",
-    "address": "https://kubernetes.default.svc"
-  }
-}

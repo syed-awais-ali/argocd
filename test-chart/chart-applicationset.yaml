@@ -16,12 +16,13 @@ spec:
       labels:
         app: otel
         env: '{{env}}'
+      namespace: otel
     spec:
       project: 'otel-{{env}}'
       source:
         repoURL: https://github.com/Aamir-raza-1/argocd
         targetRevision: HEAD
-        path: test-chart/Chart.yaml
+        path: test-chart
         helm:
          valueFiles:
           - dev-values.yaml
@@ -30,3 +31,5 @@ spec:
         namespace: otel
       syncPolicy:
         automated: {}
+        syncOptions:   
+        - CreateNamespace=true
