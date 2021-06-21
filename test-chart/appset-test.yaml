@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: hello
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/Aamir-raza-1/argocd
+      revision: HEAD
+      files:
+      - path: "configs/new-test.yaml"
+  template:
+    metadata:
+      name: 'hello-{{cluster.name}}'
+      labels:
+        app: hello
+        env: '{{env}}'
+    spec:
+      project: 'hello-{{env}}'
+      source:
+        repoURL: https://github.com/Aamir-raza-1/argocd
+        targetRevision: HEAD
+        path: test-chart/Chart.yaml
+        helm:
+         valueFiles:
+          - dev-values.yaml
+      destination:
+        server: '{{cluster.address}}'
+        namespace: hello
+      syncPolicy:
+        automated: {}
