@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: otel
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/Aamir-raza-1/argocd
+      revision: HEAD
+      files:
+      - path: "test-chart/configs/cluster-test.yaml"
+  template:
+    metadata:
+      name: 'otel-{{cluster.name}}'
+      labels:
+        app: otel
+        env: '{{env}}'
+    spec:
+      project: 'otel-{{env}}'
+      source:
+        repoURL: https://github.com/Aamir-raza-1/argocd
+        targetRevision: HEAD
+        path: test-chart/Chart.yaml
+        helm:
+         valueFiles:
+          - dev-values.yaml
+      destination:
+        server: '{{cluster.address}}'
+        namespace: otel
+      syncPolicy:
+        automated: {}

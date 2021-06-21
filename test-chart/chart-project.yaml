@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: otel-dev
+  namespace: argocd
+spec:
+  description: otel namespace in dev-cluster
+  destinations:
+  - namespace: otel
+    server: https://kubernetes.default.svc
+  sourceRepos:
+  - https://github.com/Aamir-raza-1/argocd

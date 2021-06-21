@@ -1,0 +1,7 @@
+{
+  "env": "test",
+  "cluster": {
+    "name": "test-cluster",
+    "address": "https://kubernetes.default.svc"
+  }
+}
