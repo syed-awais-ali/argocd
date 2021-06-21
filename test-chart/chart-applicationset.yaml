@@ -9,7 +9,7 @@ spec:
       repoURL: https://github.com/Aamir-raza-1/argocd
       revision: HEAD
       files:
-      - path: "test-chart/configs/cluster-test.yaml"
+      - path: "configs/cluster-test.yaml"
   template:
     metadata:
       name: 'otel-{{cluster.name}}'
