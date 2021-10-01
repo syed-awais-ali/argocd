@@ -1,9 +1,10 @@
 bases:
 - ../../base
+- namespace.yaml
 
 patchesStrategicMerge:
 - replica-and-rollout-strategy.yaml
-#namespace: dev-namespace
+namespace: dev-namespace
 commonLabels:
   env : dev
 
