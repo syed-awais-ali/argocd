@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
   labels:
     run: app1
   name: app1
@@ -13,12 +12,11 @@ spec:
   strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         run: app1
     spec:
       containers:
-      - image: core.harbor.domain/library/buildah-centos:78b0c3e0c0aaed6eb675bbc073dd4ebab4cc002a
+      - image: nginx
         name: app1
         ports:
         - containerPort: 80
