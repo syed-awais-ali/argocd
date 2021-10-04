@@ -10,7 +10,7 @@ commonLabels:
 
 replicas:
 - name: app1
-  count: 1
+  count: 3
 
 images:
 - name: nginx
